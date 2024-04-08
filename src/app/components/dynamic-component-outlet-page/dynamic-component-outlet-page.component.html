@@ -1,0 +1,6 @@
+<div class="flex flex-row justify-around h-48 items-center">
+    <button (click)="onLoadA()" appDefaultBtn>Componente A</button>
+    <button (click)="onLoadB()" appDefaultBtn>Componente B</button>
+    <button (click)="onLoadC()" appDefaultBtn>Componente C</button>
+</div>
+<app-component-loader *ngIf="config" [config]="config"></app-component-loader>

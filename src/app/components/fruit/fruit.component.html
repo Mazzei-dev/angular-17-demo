@@ -1,0 +1,29 @@
+@if (isNotEmpty(item)) {
+    <div class="flex flex-row gap-x-16">
+        <app-fruit-label
+            class="min-w-1/2"
+            [label]="'Nome'"
+            [value]="item.name">
+        </app-fruit-label>
+
+        <app-fruit-label
+            class="min-w-1/2"
+            [label]="'Genere'"
+            [value]="item.genus">
+        </app-fruit-label>
+    </div>
+
+    <div class="flex flex-row gap-x-16 min-w-1/2">
+        <app-fruit-label
+            class="min-w-1/2"
+            [label]="'Famiglia'"
+            [value]="item.family">
+        </app-fruit-label>
+
+        <app-fruit-label
+            class="min-w-1/2"
+            [label]="'Ordine'"
+            [value]="item.order">
+        </app-fruit-label>
+    </div>
+}

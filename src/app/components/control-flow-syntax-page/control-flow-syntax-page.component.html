@@ -1,0 +1,75 @@
+<div class="flex h-40 items-center justify-center">
+  <input type="radio" name="searchType" [value]="'byTitle'" [(ngModel)]="searchTypeValue">
+  <label for="html">Cerca per titolo</label><br>
+
+  <input type="radio" name="searchType" [value]="'advanced'" [(ngModel)]="searchTypeValue">
+  <label for="css">Ricerca avanzata</label><br>
+</div>
+
+@if (searchTypeValue === "byTitle") {
+    <div class="flex w-full h-48 justify-center gap-x-16">
+        <input type="text" 
+            [(ngModel)]="searchValue"
+            (keyup.enter)="search()"
+            class="w-256 border border-secondary outline-secondary outline-1 outline px-4">
+    
+        <button (click)="search()"
+            class="bg-secondary text-on-secondary rounded-full px-16">
+            Search
+        </button>
+    </div>
+
+    <div class="flex h-40 items-center justify-center">
+        Current response format: 
+        @switch (responseFormat) {
+            @case ("json") {
+              JSON implemented
+            }
+            @case ("jsonfm") {
+                jsonfm not implemented
+            }
+            @case ("xml") {
+                xml not implemented
+            }
+            @default {
+                unknown format
+            }
+        }
+    
+    </div>
+
+    <div class="flex flex-col w-full h-256">
+        @for (page of wikiPages; track page.url) {
+            <div class="flex flex-row w-full justify-between">
+                <a [href]="page.url" target="_blank">{{ page.title }}</a>
+                <button (click)="showPreview(page.url)">Mostra anteprima</button>
+            </div>
+        }
+        @empty {
+            <div class="flex w-full h-full justify-center items-center typo-medium">
+                Nessun risultato trovato
+            </div>
+        }
+    </div>
+} @else {
+    <div class="flex w-full h-full justify-center items-center typo-medium">
+        Not Implemented
+    </div>
+}
+
+<div class="flex grow min-h-0 w-full">
+    @defer (when previewLoad) {
+        <app-previewer [url]="previewUrl" class="flex w-full"></app-previewer>
+    }
+    @placeholder {
+        <div class="flex w-full h-full justify-center items-center typo-medium">
+            Visaulizza antepirma
+        </div>
+    }
+    @loading {
+        <article>Loading</article>
+    }
+    @error {
+        <article>Loading</article>
+    }
+</div>
