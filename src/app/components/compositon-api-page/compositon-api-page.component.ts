@@ -12,8 +12,8 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class CompositonApiPageComponent {
 
-  onClick() {
-    alert("Hello world");
+  onClick(message: string) {
+    alert(message);
   }
 
 }
