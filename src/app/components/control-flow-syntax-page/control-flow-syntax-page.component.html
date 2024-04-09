@@ -38,11 +38,11 @@
     
     </div>
 
-    <div class="flex flex-col w-full h-256">
+    <div class="flex flex-col w-full h-320 gap-y-8">
         @for (page of wikiPages; track page.url) {
             <div class="flex flex-row w-full justify-between">
                 <a [href]="page.url" target="_blank">{{ page.title }}</a>
-                <button (click)="showPreview(page.url)">Mostra anteprima</button>
+                <button (click)="showPreview(page.url)" appDefaultBtn>Mostra anteprima</button>
             </div>
         }
         @empty {

@@ -5,6 +5,7 @@ import { WikiPage } from '../../models/wiki.model';
 import { CommonModule } from '@angular/common';
 import { NO_VALUE } from '../../models/fruit.model';
 import { PreviewerComponent } from '../previewer/previewer.component';
+import { DefaultBtnDirective } from '../../directives/default-btn.directive';
 
 @Component({
   selector: 'app-control-flow-syntax-page',
@@ -12,7 +13,8 @@ import { PreviewerComponent } from '../previewer/previewer.component';
   imports: [
     CommonModule,
     FormsModule,
-    PreviewerComponent
+    PreviewerComponent,
+    DefaultBtnDirective
   ],
   templateUrl: './control-flow-syntax-page.component.html',
   host: {
@@ -30,10 +32,7 @@ export class ControlFlowSyntaxPageComponent {
   previewLoad = false;
   previewUrl: string | typeof NO_VALUE = NO_VALUE; 
 
-  constructor(private wikiService: WikiService) {
-
-    
-  }
+  constructor(private wikiService: WikiService) {}
 
   search() {
     this.wikiService.search(this.searchValue)

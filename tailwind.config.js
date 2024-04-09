@@ -59,7 +59,8 @@ module.exports = {
       80: "5rem",
       128: "8rem",
       256: "16rem",
-      256: "16rem"
+      256: "16rem",
+      320: "20rem"
     },
     extend: {
       "fontFamily": {
